@@ -1,13 +1,120 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Reset & Global font */
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f5f6fa, #e9efff);
+  color: #1e1e1e;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  padding: 1rem;
+}
+
+/* Loader Styling */
+.page-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #dde8ff, #f5f6fa);
+  color: #007bff;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #007bff, #00c6ff);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0056b3, #0099ff);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button Defaults */
+button, .btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to right, #0056b3, #0099ff);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Utility Spacing */
+/* Reduce vertical spacing between sections */
+.section {
+  padding: 2.5rem 1.5rem;  /* reduced from 4rem */
+}
+
+/* Optional: add controlled spacing between stacked sections */
+.section + .section {
+  margin-top: 2rem;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
