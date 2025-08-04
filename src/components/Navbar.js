@@ -50,13 +50,18 @@ const Navbar = ({ scrollToSection }) => {
         <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
           {["hero", "about", "skills", "projects", "contact"].map((link) => (
             <li key={link}>
-              <a
-                className={activeLink === link ? "active" : ""}
-                onClick={() => handleNavClick(link)}
-              >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
-              </a>
-            </li>
+  <a
+    href={`#${link}`}
+    className={activeLink === link ? "active" : ""}
+    onClick={(e) => {
+      e.preventDefault();
+      handleNavClick(link);
+    }}
+  >
+    {link.charAt(0).toUpperCase() + link.slice(1)}
+  </a>
+</li>
+
           ))}
         </ul>
 
